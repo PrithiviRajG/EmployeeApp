@@ -8,6 +8,7 @@ import {MatButtonModule, MatCheckboxModule,
   MatFormFieldModule, MatSelectModule,
   MatInputModule, MatDatepickerModule,
   MatNativeDateModule} from '@angular/material';
+  import { FormsModule }   from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent
@@ -15,6 +16,7 @@ import {MatButtonModule, MatCheckboxModule,
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatButtonModule, MatCheckboxModule,
     MatToolbarModule, MatGridListModule,
     MatFormFieldModule, MatSelectModule,
