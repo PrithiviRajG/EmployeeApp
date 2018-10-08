@@ -7,8 +7,10 @@ import {MatButtonModule, MatCheckboxModule,
   MatToolbarModule, MatGridListModule,
   MatFormFieldModule, MatSelectModule,
   MatInputModule, MatDatepickerModule,
-  MatNativeDateModule} from '@angular/material';
+  MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material';
   import { FormsModule }   from '@angular/forms';
+
+  import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,9 +23,9 @@ import {MatButtonModule, MatCheckboxModule,
     MatToolbarModule, MatGridListModule,
     MatFormFieldModule, MatSelectModule,
     MatInputModule, MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule, ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
