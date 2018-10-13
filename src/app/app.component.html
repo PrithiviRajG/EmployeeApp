@@ -10,14 +10,14 @@
 <form (ngSubmit)="submitEmployee()" [formGroup]="employeeForm">
   <div class="container">
     <mat-form-field class="example-full-width" hintLabel="Max 10 characters">
-      <input formControlName="employeeId" maxlength="10" required [(ngModel)]="employee.employeeID" matInput
+      <input formControlName="employeeId" matInput required
         placeholder="Employee ID">
-      <mat-hint align="end">{{employeeId.value?.length || 0}}/10</mat-hint>
-      <mat-error *ngIf="employeeId.invalid">Invalid employee ID</mat-error>
+      <mat-hint align="end">{{employeeForm.get("employeeId").value?.length || 0}}/10</mat-hint>
+      
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input formControlName="enrollmentDate" required disabled [(ngModel)]="employee.enrollmentDate "
+      <input formControlName="enrollmentDate" required 
         matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="Enrollment Date">
       <mat-hint align="start">Select date from calendar icon</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -26,7 +26,7 @@
 
 
     <mat-form-field class="example-full-width">
-      <input formControlName="confirmationDate" disabled [(ngModel)]="employee.confirmationDate"
+      <input formControlName="confirmationDate" 
         matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker2" placeholder="Date Confirmation">
       <mat-hint align="start">Select date from calendar icon</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
@@ -34,8 +34,8 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input formControlName="leftDate" disabled [(ngModel)]="employee.leftDate" matInput [min]="minDate"
-        [max]="maxDate" [matDatepicker]="picker3" placeholder="Date of left">
+      <input formControlName="leftDate"  
+      matInput [max]="maxDate" [matDatepicker]="picker3" placeholder="Date of left">
       <mat-hint align="start">Select date from calendar icon</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
       <mat-datepicker touchUi disabled="false" #picker3></mat-datepicker>
@@ -51,30 +51,30 @@
       <tr>
         <td>
           <mat-form-field class="fitContent">
-            <mat-select formControlName="employeeTitle" required [(ngModel)]="employee.employeePersonalInforTO.title"
+            <mat-select formControlName="employeeTitle" required 
               placeholder="Title">
               <mat-option value="Mr.">Mr.</mat-option>
               <mat-option value="Mrs.">Mrs.</mat-option>
             </mat-select>
-            <mat-error *ngIf="employeeTitle.hasError('required')">Please choose Title</mat-error>
+            
           </mat-form-field>
         </td>
         <td>
           <mat-form-field>
-            <input formControlName="employeeFirstName" required [(ngModel)]="employee.employeePersonalInforTO.firstName"
+            <input formControlName="employeeFirstName" required 
               matInput placeholder="First Name">
-            <mat-error *ngIf="employeeTitle.hasError('required')">Please enter first name</mat-error>
+           
           </mat-form-field>
         </td>
         <td>
           <mat-form-field>
-            <input formControlName="employeeMiddleName"  [(ngModel)]="employee.employeePersonalInforTO.middleName"
+            <input formControlName="employeeMiddleName"  
               matInput placeholder="Middle Name">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field>
-            <input formControlName="employeeLastName" [(ngModel)]="employee.employeePersonalInforTO.lastName"
+            <input formControlName="employeeLastName" 
               matInput placeholder="Last Name">
           </mat-form-field>
         </td>
@@ -82,24 +82,24 @@
     </table>
 
     <mat-form-field class="fitContent">
-      <mat-select formControlName="employeeSex" required [(ngModel)]="employee.employeePersonalInforTO.sex"
+      <mat-select formControlName="employeeSex" required 
         placeholder="Sex">
         <mat-option value="Male">Male</mat-option>
         <mat-option value="Female">Female</mat-option>
         <mat-option value="Others">Others</mat-option>
       </mat-select>
-      <mat-error *ngIf="employeeSex.hasError('required')">Please choose sex</mat-error>
+      
     </mat-form-field>
 
     <mat-form-field class="fitContent">
-      <mat-select formControlName="employeeMaritalStatus" required [(ngModel)]="employee.employeePersonalInforTO.maritalStatus"
+      <mat-select formControlName="employeeMaritalStatus" required 
         placeholder="Marital Status">
         <mat-option value="Single">Single</mat-option>
         <mat-option value="Married">Married</mat-option>
         <mat-option value="Divorced">Divorced</mat-option>
         <mat-option value="Widow">Widow</mat-option>
       </mat-select>
-      <mat-error *ngIf="employeeMaritalStatus.hasError('required')">Please choose marital status</mat-error>
+      
     </mat-form-field>
 
   </div>
@@ -110,7 +110,7 @@
 
   <div class="container">
     <mat-form-field class="example-full-width">
-      <input formControlName="employeeWeddingDate" disabled [(ngModel)]="employee.employeeRelationshipDetailsTO.weddingDate"
+      <input formControlName="employeeWeddingDate" disabled 
         matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker4" placeholder="Wedding Date">
       <mat-hint align="start">Select date from calendar icon</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
@@ -122,19 +122,19 @@
 
         <td>
           <mat-form-field>
-            <input formControlName="relationFirstName" [(ngModel)]="employee.employeeRelationshipDetailsTO.firstName"
+            <input formControlName="relationFirstName" 
               matInput placeholder="First Name">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field>
-            <input formControlName="relationMiddleName" [(ngModel)]="employee.employeeRelationshipDetailsTO.middleName"
+            <input formControlName="relationMiddleName" 
               matInput placeholder="Middle Name">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field>
-            <input formControlName="relationLastName" [(ngModel)]="employee.employeeRelationshipDetailsTO.lastName"
+            <input formControlName="relationLastName" 
               matInput placeholder="Last Name">
           </mat-form-field>
         </td>
@@ -142,12 +142,12 @@
     </table>
 
     <mat-form-field class="example-full-width">
-      <textarea formControlName="permanentAddress" [(ngModel)]="employee.employeeRelationshipDetailsTO.permanentAddress"
+      <textarea formControlName="permanentAddress" 
         matInput placeholder="Permanent Address"></textarea>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <textarea formControlName="communicationAddress" [(ngModel)]="employee.employeeRelationshipDetailsTO.communicationAddress"
+      <textarea formControlName="communicationAddress" 
         matInput placeholder="Communication Address"></textarea>
     </mat-form-field>
 
@@ -162,7 +162,7 @@
       <tr>
         <td>
           <mat-form-field class="fitContent">
-            <mat-select name="guardianTitle" #guardianTitle="ngModel" [(ngModel)]="employee.employeeGuardianDetails.title"
+            <mat-select formControlName="guardianTitle" 
               placeholder="Guardian Title">
               <mat-option value="Mr.">Mr.</mat-option>
               <mat-option value="Mrs.">Mrs.</mat-option>
@@ -172,19 +172,19 @@
         </td>
         <td>
           <mat-form-field>
-            <input name="guardianFirstName" #guardianFirstName="ngModel" [(ngModel)]="employee.employeeGuardianDetails.firstName"
+            <input formControlName="guardianFirstName"  
               matInput placeholder="Guardian First Name">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field>
-            <input name="guardianMiddleName" #guardianMiddleName="ngModel" [(ngModel)]="employee.employeeGuardianDetails.middleName"
+            <input formControlName="guardianMiddleName" 
               matInput placeholder="Guardian Middle Name">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field>
-            <input name="guardianLastName" #guardianLastName="ngModel" [(ngModel)]="employee.employeeGuardianDetails.lastName"
+            <input formControlName="guardianLastName" 
               matInput placeholder="Guardian Last Name">
           </mat-form-field>
         </td>
@@ -192,17 +192,17 @@
     </table>
 
     <mat-form-field class="example-full-width">
-      <input name="guardianRelationship" #guardianRelationship="ngModel" [(ngModel)]="employee.employeeGuardianDetails.guardianRelationship"
+      <input formControlName="guardianRelationship" 
         matInput placeholder="Relationship to the Guardian">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input name="guardianAddressId" #guardianAddressId="ngModel" [(ngModel)]="employee.employeeGuardianDetails.guardianAddressId"
+      <input formControlName="guardianAddressId" 
         matInput placeholder="Guardian Address ID">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input name="updatedOn" disabled #updatedOn="ngModel" [(ngModel)]="employee.employeeGuardianDetails.updatedOn"
+      <input formControlName="updatedOn" disabled 
         matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker5" placeholder="Updated on">
       <mat-hint align="start">Select date from calendar icon</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
@@ -210,12 +210,12 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input name="updatedBy" #updatedBy="ngModel" [(ngModel)]="employee.employeeGuardianDetails.updatedBy" matInput
+      <input formControlName="updatedBy"  matInput
         placeholder="Updated by">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input name="modifiedOn" disabled #modifiedOn="ngModel" [(ngModel)]="employee.employeeGuardianDetails.modifiedOn"
+      <input formControlName="modifiedOn" disabled 
         matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker6" placeholder="Modified on">
       <mat-hint align="start">Select date from calendar icon</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
@@ -223,7 +223,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input name="lastModifiedBy" #lastModifiedBy="ngModel" [(ngModel)]="employee.employeeGuardianDetails.lastModifiedBy"
+      <input formControlName="lastModifiedBy" 
         matInput placeholder="Last modified by">
     </mat-form-field>
   </div>
@@ -233,7 +233,7 @@
 
     </mat-grid-tile>
     <mat-grid-tile>
-      <button [disabled]="!employeeForm.form.valid" mat-raised-button color="primary">Submit</button>
+      <button [disabled]="!employeeForm.valid" mat-raised-button color="primary">Submit</button>
     </mat-grid-tile>
     <mat-grid-tile>
 
