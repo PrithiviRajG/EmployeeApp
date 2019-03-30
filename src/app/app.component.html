@@ -10,7 +10,7 @@
 <form (ngSubmit)="submitEmployee()" [formGroup]="employeeForm">
   <div class="container">
     <mat-form-field class="example-full-width" hintLabel="Max 10 characters">
-      <input formControlName="employeeId" matInput required
+      <input formControlName="employeeId" matInput required maxlength=10
         placeholder="Employee ID">
       <mat-hint align="end">{{employeeForm.get("employeeId").value?.length || 0}}/10</mat-hint>
       

@@ -69,8 +69,9 @@ export class AppComponent {
   submitEmployee(){
     
     console.log(this.employee);
-    console.log(JSON.stringify(this.employee));
+    this.employee = this.employeeForm.value;
     console.log(JSON.stringify(this.employeeForm.value));
+    console.log(this.employee);
     alert("Success! see the developer console!")
 
   }
